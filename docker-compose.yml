@@ -1,0 +1,15 @@
+services:
+  oracle:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: gymnase-oracle
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
+    ports:
+      - "1523:1521"
+    volumes:
+      - ./sql:/sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
