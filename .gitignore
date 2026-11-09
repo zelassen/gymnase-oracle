@@ -2,3 +2,4 @@
 *.log
 *.dat
 a_nettoyer/
+sql/03_data.sql
